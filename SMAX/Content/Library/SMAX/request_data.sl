@@ -38,5 +38,5 @@ extensions:
     results:
       SUCCESS:
         38e540bf-60e5-b0cb-83ff-994a0463f210:
-          x: 370
-          'y': 148
+          x: 344
+          'y': 168

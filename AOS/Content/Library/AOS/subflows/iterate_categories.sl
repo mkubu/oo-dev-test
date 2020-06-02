@@ -45,6 +45,7 @@ flow:
               - category_name: '${category_name}'
               - category_id: '${category_id}'
               - file_path: '${file_path}'
+              - product_id: '${product_id}'
           break: []
         navigate:
           - FAILURE: on_failure
@@ -62,11 +63,11 @@ extensions:
         x: 223
         'y': 102
       get_product_ids:
-        x: 379
-        'y': 106
+        x: 380
+        'y': 107
       iterate_products:
-        x: 535
-        'y': 115
+        x: 536
+        'y': 107
         navigate:
           7ba4b207-60a8-42c4-874c-4163df735739:
             targetId: 61f38339-f493-d412-f99d-4615023dbcb4
@@ -74,5 +75,5 @@ extensions:
     results:
       SUCCESS:
         61f38339-f493-d412-f99d-4615023dbcb4:
-          x: 706
-          'y': 97
+          x: 667
+          'y': 106

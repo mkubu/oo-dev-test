@@ -52,17 +52,17 @@ extensions:
   graph:
     steps:
       http_client_get:
-        x: 100
-        'y': 150
+        x: 41
+        'y': 112
       write_header:
-        x: 400
-        'y': 150
+        x: 199
+        'y': 111
       get_categories:
-        x: 700
-        'y': 150
+        x: 366
+        'y': 111
       iterate_categories:
-        x: 700
-        'y': 326
+        x: 364
+        'y': 266
         navigate:
           cd0592bb-4915-d12e-5f09-c6d043c83cc3:
             targetId: a6bad35b-9862-7882-ba05-243858ed5ab5
@@ -70,5 +70,5 @@ extensions:
     results:
       SUCCESS:
         a6bad35b-9862-7882-ba05-243858ed5ab5:
-          x: 703
-          'y': 499
+          x: 360
+          'y': 427

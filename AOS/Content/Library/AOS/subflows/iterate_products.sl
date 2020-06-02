@@ -6,6 +6,7 @@ flow:
     - category_name
     - category_id
     - file_path
+    - product_id
   workflow:
     - get_product_name:
         do:
@@ -23,7 +24,7 @@ flow:
             - json_object: '${json}'
             - json_path: "${'$.*.products[?(@.productId == '+product_id+')].price'}"
         publish:
-          - return_result: '${return_result[-1:1]}'
+          - product_price: '${return_result[-1:1]}'
         navigate:
           - SUCCESS: get_color_codes
           - FAILURE: on_failure
@@ -51,15 +52,15 @@ flow:
 extensions:
   graph:
     steps:
+      get_product_name:
+        x: 73
+        'y': 108
       get_product_price:
         x: 215
         'y': 106
-      get_product_name:
-        x: 74
-        'y': 108
       get_color_codes:
-        x: 357
-        'y': 104
+        x: 356
+        'y': 105
       add_product:
         x: 509
         'y': 111
