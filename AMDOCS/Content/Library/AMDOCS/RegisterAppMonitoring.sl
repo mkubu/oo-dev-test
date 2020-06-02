@@ -1,4 +1,4 @@
-namespace: Amdocs
+namespace: AMDOCS
 flow:
   name: RegisterAppMonitoring
   inputs:
