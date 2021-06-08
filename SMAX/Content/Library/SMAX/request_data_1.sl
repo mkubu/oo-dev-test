@@ -1,6 +1,6 @@
 namespace: SMAX
 flow:
-  name: request_data
+  name: request_data_1
   inputs:
     - smax_url: 'https://smd.mfdemos.com'
     - smax_username: michal.kubu
@@ -26,30 +26,21 @@ flow:
         publish:
           - sso_token: '${return_result}'
         navigate:
-          - SUCCESS: http_client_get
+          - SUCCESS: http_client_action
           - FAILURE: on_failure
-    - http_client_get:
+    - http_client_action:
         do:
-          io.cloudslang.base.http.http_client_get:
+          io.cloudslang.base.http.http_client_action:
             - url: "${smax_url+':443/rest/'+tenant_id+'/ems/Request?layout=Id,DisplayLabel,ImpactScope,Urgency'}"
             - auth_type: basic
             - proxy_host: '${proxy_host}'
             - proxy_port: '${proxy_port}'
-            - trust_all_roots: 'true'
-            - x_509_hostname_verifier: allow_all
             - headers: "${'Cookie:LWSSO_COOKIE_KEY=%s; TENANTID=%s' % (sso_token,tenant_id)}"
+            - destination_file: "c:\\\\temp\\\\request1.json"
             - content_type: 'Accept:application/json'
-            - input_0: null
+            - method: GET
         publish:
           - json: '${return_result}'
-        navigate:
-          - SUCCESS: write_to_file
-          - FAILURE: on_failure
-    - write_to_file:
-        do:
-          io.cloudslang.base.filesystem.write_to_file:
-            - file_path: "c:\\\\temp\\\\request.json"
-            - text: '${json}'
         navigate:
           - SUCCESS: SUCCESS
           - FAILURE: on_failure
@@ -60,20 +51,17 @@ extensions:
   graph:
     steps:
       get_sso_token:
-        x: 102
-        'y': 171
-      http_client_get:
-        x: 281
-        'y': 173
-      write_to_file:
-        x: 281
-        'y': 338
+        x: 101
+        'y': 177
+      http_client_action:
+        x: 270
+        'y': 179
         navigate:
-          fdb937af-7c30-9aea-30ee-e72caec22e80:
+          ba2febc4-b50f-3e97-8385-9192e51bb509:
             targetId: 38e540bf-60e5-b0cb-83ff-994a0463f210
             port: SUCCESS
     results:
       SUCCESS:
         38e540bf-60e5-b0cb-83ff-994a0463f210:
-          x: 447
-          'y': 340
+          x: 460
+          'y': 172

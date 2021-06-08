@@ -80,7 +80,7 @@ extensions:
         x: 1
         'y': 108
       write_header:
-        x: 360
+        x: 361
         'y': 113
       get_categories:
         x: 499
