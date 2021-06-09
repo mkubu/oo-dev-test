@@ -11,7 +11,12 @@ flow:
             - password:
                 value: Police.123
                 sensitive: true
+            - proxy_host: web-proxy.eu.softwaregrp.net
+            - proxy_port: '8080'
+            - trust_all_roots: 'true'
+            - x_509_hostname_verifier: allow_all
             - destination_file: "c:\\\\temp\\mycp.jar"
+            - content_type: 'Accept:application/json'
             - method: GET
         navigate:
           - SUCCESS: SUCCESS

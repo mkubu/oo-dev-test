@@ -66,7 +66,7 @@ extensions:
         x: 281
         'y': 173
       write_to_file:
-        x: 281
+        x: 282
         'y': 338
         navigate:
           fdb937af-7c30-9aea-30ee-e72caec22e80:

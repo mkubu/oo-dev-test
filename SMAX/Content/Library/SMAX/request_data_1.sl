@@ -16,6 +16,10 @@ flow:
           io.cloudslang.base.http.http_client_post:
             - url: "${smax_url+'/auth/authentication-endpoint/authenticate/login?TENANTID='+tenant_id}"
             - auth_type: basic
+            - username: null
+            - password:
+                value: null
+                sensitive: true
             - proxy_host: '${proxy_host}'
             - proxy_port: '${proxy_port}'
             - trust_all_roots: 'true'
@@ -33,6 +37,7 @@ flow:
           io.cloudslang.base.http.http_client_action:
             - url: "${smax_url+':443/rest/'+tenant_id+'/ems/Request?layout=Id,DisplayLabel,ImpactScope,Urgency'}"
             - auth_type: basic
+            - preemptive_auth: null
             - proxy_host: '${proxy_host}'
             - proxy_port: '${proxy_port}'
             - headers: "${'Cookie:LWSSO_COOKIE_KEY=%s; TENANTID=%s' % (sso_token,tenant_id)}"
@@ -51,7 +56,7 @@ extensions:
   graph:
     steps:
       get_sso_token:
-        x: 101
+        x: 100
         'y': 177
       http_client_action:
         x: 270
